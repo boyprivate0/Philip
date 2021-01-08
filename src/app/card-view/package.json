@@ -1,0 +1,10 @@
+{
+  "es2015": "dist/fesm2015/bit-waqar_ali.philip-collection.card-view.js",
+  "esm5": "dist/esm5/bit-waqar_ali.philip-collection.card-view.js",
+  "esm2015": "dist/esm2015/bit-waqar_ali.philip-collection.card-view.js",
+  "fesm5": "dist/fesm5/bit-waqar_ali.philip-collection.card-view.js",
+  "fesm2015": "dist/fesm2015/bit-waqar_ali.philip-collection.card-view.js",
+  "module": "dist/fesm5/bit-waqar_ali.philip-collection.card-view.js",
+  "typings": "dist/bit-waqar_ali.philip-collection.card-view.d.ts",
+  "metadata": "dist/bit-waqar_ali.philip-collection.card-view.metadata.json"
+}
