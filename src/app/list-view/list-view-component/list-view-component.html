@@ -1,0 +1,5 @@
+<div class="container">
+  <ng-container *ngFor="let cardItem of cardItems">
+    <app-card-view-component (editItemEvent)="editItem(cardItem.id)" [cardItem]="cardItem"></app-card-view-component>
+  </ng-container>
+</div>

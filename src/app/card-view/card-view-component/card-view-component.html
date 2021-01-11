@@ -1,14 +1,14 @@
 <mat-card class="card">
-    <mat-card-header>
-      <mat-card-title>{{cardItem.title}}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content class="flex">
-      <p class="description truncate-overflow">
-        {{cardItem.description}}
-      </p>
-      <img class="image" src={{cardItem.image}} alt={{cardItem.title}}>
-    </mat-card-content>
-    <mat-card-actions>
-      <button (click)="editItem(cardItem.id)" mat-raised-button color="primary">EDIT</button>
-    </mat-card-actions>
-  </mat-card>
+  <mat-card-header>
+    <mat-card-title>{{cardItem.title}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="flex">
+    <p class="description truncate-overflow">
+      {{cardItem.description}}
+    </p>
+    <img *ngIf="cardItem.image" class="image" src={{cardItem.image}} alt={{cardItem.title}}>
+  </mat-card-content>
+  <mat-card-actions>
+    <button (click)="editItem(cardItem.id)" mat-raised-button color="primary">EDIT</button>
+  </mat-card-actions>
+</mat-card>
