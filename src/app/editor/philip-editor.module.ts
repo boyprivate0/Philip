@@ -1,9 +1,10 @@
+import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { PhilipEditorComponent } from './philip-editor/philip-editor.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { QuillModule } from 'ngx-quill'
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { PhilipDialogComponent } from './philip-dialog/philip-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -16,17 +17,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     QuillModule.forRoot(),
     MatDialogModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule
   ],
   exports: [
     PhilipDialogComponent,
-    QuillModule,
     MatDialogModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
-  ]
+  ],
 })
 export class PhilipEditorModule { }
