@@ -23,7 +23,7 @@
     "@angular/platform-browser-dynamic": "~11.0.0",
     "@angular/router": "~11.0.0",
     "@bit/waqar_ali.philip-collection.card-view": "0.0.8",
-    "@bit/waqar_ali.philip-collection.editor": "0.0.1",
+    "@bit/waqar_ali.philip-collection.editor": "0.0.2",
     "@types/quill": "^1.3.10",
     "ngx-quill": "^11.0.0",
     "quill": "^1.3.7",
