@@ -5,9 +5,9 @@
         <input matInput placeholder="Title" formControlName="title">
     </mat-form-field>
     <p>
-        <b>Description</b>
+        Description
     </p>
-    <quill-editor [modules]="modules" formControlName="description"></quill-editor>
+    <quill-editor [style]="editorStyle" [modules]="modules" formControlName="description"></quill-editor>
 </mat-dialog-content>
 
 <mat-dialog-actions>

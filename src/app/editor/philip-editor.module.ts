@@ -8,6 +8,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { PhilipDialogComponent } from './philip-dialog/philip-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+export const quillModule = QuillModule.forRoot();
+
 @NgModule({
   declarations: [
     PhilipEditorComponent,
@@ -15,7 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    QuillModule.forRoot(),
+    quillModule,
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,

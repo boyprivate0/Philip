@@ -2,6 +2,11 @@
     margin-right: 20px;
 }
 
-b {
+p {
     color: darkgray;
 }
+
+::ng-deep .ql-container {
+    height: 200px !important;
+}
+      

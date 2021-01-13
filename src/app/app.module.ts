@@ -8,7 +8,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 // import { ListViewModule } from './list-view/list-view.module';
 // import { PhilipEditorComponent } from './editor/philip-editor/philip-editor.component';
 // import { CardViewModule } from './card-view/card-view.module';
-import { QuillModule } from 'ngx-quill'
+// import { QuillModule } from 'ngx-quill'
 
 
 @NgModule({
@@ -21,7 +21,7 @@ import { QuillModule } from 'ngx-quill'
     // ListViewModule,
     NoopAnimationsModule,
     PhilipEditorModule,
-    QuillModule
+    // QuillModule
   ],
   providers: [],
   bootstrap: [AppComponent]

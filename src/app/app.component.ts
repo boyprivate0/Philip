@@ -13,6 +13,22 @@ export class AppComponent {
     description: 'description dasdas dasd asdasdasd ad asdasd adasdasd ad asdasdasd ad ad ad ad ad adasdasdddddddddddddd asdasd asdad ad ad ad ad ad adasdasdddddddddddddd asdasd asdad',
     image: null
   };
+  modules = {
+    toolbar: [
+      ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+
+      [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+      [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
+
+    
+      [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+      [{ 'font': [] }],
+      [{ 'align': [] }],
+
+    
+      ['link', 'image', 'video']                         // link and image, video
+    ]
+  }
 
   cardItems = [
     { id: "b27ba369-3580-43cb-87de-c796b2a633ed", title: "price2", type: null, description: null, image: null },
