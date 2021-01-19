@@ -21,8 +21,10 @@ export class PhilipEditorComponent {
         this.form = this.fb.group({
             description: [description, Validators.required],
             title: [title, Validators.required],
-            text: [text]
+            text: [text],
+            images: []
         });
+        this.form.controls.images.setValue([]);
         this.editorStyle = editorStyle;
         this.modules = modules;
         this.images = images;
@@ -44,6 +46,13 @@ export class PhilipEditorComponent {
     }
 
     onFileComplete(data: any) {
-        console.log(data); // We just print out data bubbled up from event emitter.
+        const reader = new FileReader();
+        
+        reader.readAsDataURL(data); 
+        reader.onload = (_event) => {
+            if(typeof reader.result === 'string') 
+            this.images.push(reader.result); 
+        }
+        this.form.controls.images.setValue(this.form.value.images.concat(data));
     }
 }

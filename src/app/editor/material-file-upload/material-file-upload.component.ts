@@ -1,11 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-import {
-    HttpClient, HttpRequest,
-    HttpEventType, HttpErrorResponse
-} from '@angular/common/http';
-import { Subscription, of } from 'rxjs';
-import { catchError, last, map, tap } from 'rxjs/operators';
 
 @Component({
     selector: 'app-material-file-upload',
@@ -25,8 +19,6 @@ export class MaterialFileUploadComponent implements OnInit {
     @Input() text = 'Upload';
     /** Name used in form which will be sent in HTTP request. */
     @Input() param = 'file';
-    /** Target URL for file uploading. */
-    @Input() target = 'https://file.io';
     /** File extension that accepted, same as 'accept' of <input type="file" />. 
         By the default, it's set to 'image/*'. */
     @Input() accept = 'image/*';
@@ -35,7 +27,7 @@ export class MaterialFileUploadComponent implements OnInit {
 
     private files: Array<FileUploadModel> = [];
 
-    constructor(private _http: HttpClient) { }
+    constructor() { }
 
     ngOnInit() {
     }
@@ -57,8 +49,6 @@ export class MaterialFileUploadComponent implements OnInit {
     }
 
     cancelFile(file: FileUploadModel) {
-        if (file && file.sub)
-            file.sub.unsubscribe();
         this.removeFileFromArray(file);
     }
 
@@ -70,44 +60,12 @@ export class MaterialFileUploadComponent implements OnInit {
     private uploadFile(file: FileUploadModel) {
         const fd = new FormData();
         fd.append(this.param, file.data);
-        console.log("filedaa", file.data);
-
-        const req = new HttpRequest('POST', this.target, fd, {
-            reportProgress: true
-        });
-
-        file.inProgress = true;
-        file.sub = this._http.request(req).pipe(
-            map((event: any) => {
-                switch (event.type) {
-                    case HttpEventType.UploadProgress:
-                        file.progress = Math.round(event.loaded * 100 / (event && event.total ? event.total : 1));
-                        break;
-                    case HttpEventType.Response:
-                        return event;
-                }
-            }),
-            tap(message => { }),
-            last(),
-            catchError((error: HttpErrorResponse) => {
-                file.inProgress = false;
-                file.canRetry = true;
-                return of(`${file.data.name} upload failed.`);
-            })
-        ).subscribe(
-            (event: any) => {
-                if (typeof (event) === 'object') {
-                    this.removeFileFromArray(file);
-                    this.complete.emit(event.body);
-                }
-            }
-        );
+        this.complete.emit(file.data);
     }
 
     private uploadFiles() {
         const fileUpload = document.getElementById('fileUpload') as HTMLInputElement;
         fileUpload.value = '';
-
         this.files.forEach(file => {
             this.uploadFile(file);
         });
@@ -129,7 +87,6 @@ export class FileUploadModel {
     progress: number;
     canRetry: boolean;
     canCancel: boolean;
-    sub?: Subscription;
 
     constructor() {
         this.data = '';

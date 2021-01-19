@@ -9,7 +9,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { PhilipDialogComponent } from './philip-dialog/philip-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 
 export const quillModule = QuillModule.forRoot();
@@ -29,7 +28,6 @@ export const quillModule = QuillModule.forRoot();
     MatButtonModule,
     MatInputModule,
     MatProgressBarModule,
-    HttpClientModule,
     MatIconModule
   ],
   exports: [
@@ -37,7 +35,7 @@ export const quillModule = QuillModule.forRoot();
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
-    MatButtonModule,
+    MatButtonModule
   ],
 })
 export class PhilipEditorModule { }
