@@ -44,8 +44,23 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "waqar_ali.philip-collection/editor@0.0.4": {
+    "waqar_ali.philip-collection/editor@0.0.5": {
         "files": [
+            {
+                "relativePath": "src/app/editor/material-file-upload/material-file-upload.component.html",
+                "test": false,
+                "name": "material-file-upload.component.html"
+            },
+            {
+                "relativePath": "src/app/editor/material-file-upload/material-file-upload.component.scss",
+                "test": false,
+                "name": "material-file-upload.component.scss"
+            },
+            {
+                "relativePath": "src/app/editor/material-file-upload/material-file-upload.component.ts",
+                "test": false,
+                "name": "material-file-upload.component.ts"
+            },
             {
                 "relativePath": "src/app/editor/package.json",
                 "test": false,

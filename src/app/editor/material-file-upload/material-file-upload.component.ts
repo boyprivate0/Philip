@@ -23,9 +23,9 @@ export class MaterialFileUploadComponent implements OnInit {
         By the default, it's set to 'image/*'. */
     @Input() accept = 'image/*';
     /** Allow you to add handler after its completion. Bubble up response text from remote. */
-    @Output() complete = new EventEmitter<string>();
+    @Output() complete = new EventEmitter<Array<File>>();
 
-    private files: Array<FileUploadModel> = [];
+    private files: Array<File> = [];
 
     constructor() { }
 
@@ -38,62 +38,15 @@ export class MaterialFileUploadComponent implements OnInit {
             if (fileUpload && fileUpload.files)
                 for (let index = 0; index < fileUpload.files.length; index++) {
                     const file = fileUpload.files[index];
-                    this.files.push({
-                        data: file, state: 'in',
-                        inProgress: false, progress: 0, canRetry: false, canCancel: true
-                    });
+                    this.files.push(file);
                 }
             this.uploadFiles();
         };
         fileUpload.click();
     }
 
-    cancelFile(file: FileUploadModel) {
-        this.removeFileFromArray(file);
-    }
-
-    retryFile(file: FileUploadModel) {
-        this.uploadFile(file);
-        file.canRetry = false;
-    }
-
-    private uploadFile(file: FileUploadModel) {
-        const fd = new FormData();
-        fd.append(this.param, file.data);
-        this.complete.emit(file.data);
-    }
-
     private uploadFiles() {
-        const fileUpload = document.getElementById('fileUpload') as HTMLInputElement;
-        fileUpload.value = '';
-        this.files.forEach(file => {
-            this.uploadFile(file);
-        });
+        this.complete.emit(this.files);
     }
 
-    private removeFileFromArray(file: FileUploadModel) {
-        const index = this.files.indexOf(file);
-        if (index > -1) {
-            this.files.splice(index, 1);
-        }
-    }
-
-}
-
-export class FileUploadModel {
-    data: any;
-    state: string;
-    inProgress: boolean;
-    progress: number;
-    canRetry: boolean;
-    canCancel: boolean;
-
-    constructor() {
-        this.data = '';
-        this.state = '';
-        this.inProgress = false;
-        this.progress = 0;
-        this.canRetry = false;
-        this.canCancel = false;
-    }
 }

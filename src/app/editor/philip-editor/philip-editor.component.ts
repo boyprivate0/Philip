@@ -12,6 +12,7 @@ export class PhilipEditorComponent {
     public editorStyle = {};
     public images: string[] = [];
     public form: FormGroup;
+    public newImages: string[] = [];
 
     constructor(
         private fb: FormBuilder,
@@ -34,6 +35,7 @@ export class PhilipEditorComponent {
     }
 
     save() {
+        this.form.controls.images.setValue(this.newImages);
         this.dialogRef.close(this.form.value);
     }
 
@@ -45,14 +47,15 @@ export class PhilipEditorComponent {
         this.form.controls.text.setValue($event.text);
     }
 
-    onFileComplete(data: any) {
-        const reader = new FileReader();
-        
-        reader.readAsDataURL(data); 
-        reader.onload = (_event) => {
-            if(typeof reader.result === 'string') 
-            this.images.push(reader.result); 
+    onFileComplete(data: File[]) {
+        this.newImages = [];
+        for (let i = 0; i < data.length; i++) {
+            const reader = new FileReader();
+            reader.readAsDataURL(data[i]); 
+            reader.onload = (_event) => {
+                if(typeof reader.result === 'string') 
+                this.newImages.push(reader.result); 
+            } 
         }
-        this.form.controls.images.setValue(this.form.value.images.concat(data));
     }
 }

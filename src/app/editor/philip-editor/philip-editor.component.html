@@ -16,6 +16,12 @@
             <img mat-card-image src="" alt="Photo of a Shiba Inu">
         </picture>
     </ng-container>
+    <ng-container *ngFor="let image of newImages">
+        <picture>
+            <source media='(min-width:0px)' srcset="{{image}}">
+            <img mat-card-image src="" alt="Photo of a Shiba Inu">
+        </picture>
+    </ng-container>
     <div style="text-align:center">
         <app-material-file-upload (complete)="onFileComplete($event)"></app-material-file-upload>
     </div>
