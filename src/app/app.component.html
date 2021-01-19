@@ -5,4 +5,6 @@
     <app-card-view-component [cardItem]="cardItem"></app-card-view-component>
 </div> -->
 
-<app-philip-dialog [modules]="modules" [description]="'ss22'" [title]="'daddsa'"></app-philip-dialog>
+<app-philip-dialog [modules]="modules" (updatedData)="updateData($event)" [images]="images" [description]="'ss22'"
+    [title]="'daddsa'">
+</app-philip-dialog>

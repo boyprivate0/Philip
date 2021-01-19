@@ -7,7 +7,18 @@
     <p>
         Description
     </p>
-    <quill-editor [style]="editorStyle" [modules]="modules" formControlName="description"></quill-editor>
+    <quill-editor [style]="editorStyle" (onContentChanged)="saveText($event)" [modules]="modules"
+        formControlName="description"></quill-editor>
+
+    <ng-container *ngFor="let image of images">
+        <picture>
+            <source media='(min-width:0px)' srcset="{{image}}">
+            <img mat-card-image src="" alt="Photo of a Shiba Inu">
+        </picture>
+    </ng-container>
+    <div style="text-align:center">
+        <app-material-file-upload (complete)="onFileComplete($event)"></app-material-file-upload>
+    </div>
 </mat-dialog-content>
 
 <mat-dialog-actions>

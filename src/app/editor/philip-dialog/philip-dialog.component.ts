@@ -35,9 +35,11 @@ export class PhilipDialogComponent implements OnInit {
 
   @Input() description: string = '';
   @Input() title: string = '';
+  @Input() text: string = '';
   @Input() editorStyle: object = {
     height: '200px'
   };
+  @Input() images: string[] = [];
 
   @Output() updatedData = new EventEmitter();
 
@@ -48,7 +50,14 @@ export class PhilipDialogComponent implements OnInit {
 
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.data = { description: this.description, title: this.title, editorStyle: this.editorStyle, modules: this.modules };
+    dialogConfig.data = {
+      description: this.description,
+      title: this.title, text: this.text,
+      editorStyle: this.editorStyle,
+      modules: this.modules,
+      images: this.images
+    };
+
     const dialogRef = this.matDialog.open(PhilipEditorComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(

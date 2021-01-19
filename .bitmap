@@ -44,7 +44,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "waqar_ali.philip-collection/editor@0.0.3": {
+    "waqar_ali.philip-collection/editor@0.0.4": {
         "files": [
             {
                 "relativePath": "src/app/editor/package.json",

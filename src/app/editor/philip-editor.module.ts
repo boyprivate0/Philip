@@ -1,3 +1,4 @@
+import { MaterialFileUploadComponent } from './material-file-upload/material-file-upload.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { PhilipEditorComponent } from './philip-editor/philip-editor.component';
@@ -7,13 +8,17 @@ import { QuillModule } from 'ngx-quill'
 import { MatDialogModule } from '@angular/material/dialog';
 import { PhilipDialogComponent } from './philip-dialog/philip-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { HttpClientModule } from '@angular/common/http';
+import { MatIconModule } from '@angular/material/icon';
 
 export const quillModule = QuillModule.forRoot();
 
 @NgModule({
   declarations: [
     PhilipEditorComponent,
-    PhilipDialogComponent
+    PhilipDialogComponent,
+    MaterialFileUploadComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +27,10 @@ export const quillModule = QuillModule.forRoot();
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatProgressBarModule,
+    HttpClientModule,
+    MatIconModule
   ],
   exports: [
     PhilipDialogComponent,

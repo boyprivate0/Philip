@@ -20,12 +20,12 @@ export class AppComponent {
       [{ 'list': 'ordered' }, { 'list': 'bullet' }],
       [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
 
-    
+
       [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
       [{ 'font': [] }],
       [{ 'align': [] }],
 
-    
+
       ['link', 'image', 'video']                         // link and image, video
     ]
   }
@@ -37,4 +37,17 @@ export class AppComponent {
     { id: "babb3b79-c859-4f33-b865-dd7caa1aa66d", title: "text-block-2", type: "markdown", description: "# header1 ↵ normal text", image: null },
     { id: "56d34a98-bfad-4081-9dd3-e193a78a1cc0", title: "text-block-3", type: "markdown", description: "# header1 ↵ normal text", image: "https://static.cdn366dev.nl/test1/pexels-pixabay-207691.jpg" }
   ];
+
+  images = [
+    'https://picsum.photos/200',
+    'https://picsum.photos/400',
+    'https://picsum.photos/600',
+    'https://picsum.photos/200',
+    'https://picsum.photos/400',
+    'https://picsum.photos/600'
+  ]
+
+  updateData($event: any) {
+    console.log("va", $event);
+  }
 }
