@@ -7,6 +7,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
   templateUrl: './philip-dialog.component.html',
   styleUrls: ['./philip-dialog.component.scss']
 })
+
 export class PhilipDialogComponent implements OnInit {
 
   @Input() modules = {
@@ -39,7 +40,8 @@ export class PhilipDialogComponent implements OnInit {
   @Input() editorStyle: object = {
     height: '200px'
   };
-  @Input() images: string[] = [];
+  @Input() images: image[] = [];
+  @Input() headerText = 'Edit Text Block';
 
   @Output() updatedData = new EventEmitter();
 
@@ -55,7 +57,8 @@ export class PhilipDialogComponent implements OnInit {
       title: this.title, text: this.text,
       editorStyle: this.editorStyle,
       modules: this.modules,
-      images: this.images
+      images: this.images,
+      textBlockText: this.headerText
     };
 
     const dialogRef = this.matDialog.open(PhilipEditorComponent, dialogConfig);
@@ -64,4 +67,9 @@ export class PhilipDialogComponent implements OnInit {
       val => this.updatedData.emit(val)
     );
   }
+}
+
+interface image {
+  id: string,
+  src: string
 }

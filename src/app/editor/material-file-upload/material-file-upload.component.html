@@ -1,4 +1,5 @@
-<button mat-button color="warn" (click)="onClick()">
+<button class="uploadfilecontainer" mat-button color="warn" (click)="onClick()" appDragDrop (onFileDropped)="uploadFile($event)">
+    <div>Drag and Drop OR</div>
     <mat-icon>file_upload</mat-icon>
     {{text}}
 </button>

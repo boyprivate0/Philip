@@ -13,3 +13,21 @@
 #file-label a {
       cursor: pointer;
 }
+
+.uploadfilecontainer {
+      background-repeat: no-repeat;
+      background-size: 100px;
+      background-position: center;
+      height: 100px;
+      width: 30%;
+      margin: 20px auto;
+      border: 2px dashed #ff4336;
+      background-color: white !important;
+      border-radius: 10px;
+}
+    
+.uploadfilecontainer:hover {
+      cursor: pointer;
+      background-color: #ffefef !important;
+      opacity: 0.8;
+}

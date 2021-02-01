@@ -16,3 +16,55 @@ img {
     margin-right: 10px;
     margin-top: 10px;
 }
+
+.mat-toolbar-row {
+    justify-content: space-between;
+}
+
+::ng-deep .mat-dialog-container {
+    padding: 0 !important;
+}
+
+.full-width {
+    width: 100%;
+}
+
+::ng-deep .mat-dialog-content { 
+    margin: 0;
+    padding: 0;
+}
+
+.content-margin {
+    margin: 0 24px;
+}
+
+.mat-dialog-content {
+    margin-top: 24px;
+}
+
+.img-container img {
+    width: 200px;
+    height: 200px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+  
+.btn {
+    width: 25px;
+    height: 25px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: red !important;
+    color: white !important;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.margin-top--20 {
+    margin-top: 20px;
+}
+
+.remove-icon {
+    margin-bottom: 18px;
+}

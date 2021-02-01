@@ -10,6 +10,8 @@ import { PhilipDialogComponent } from './philip-dialog/philip-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { DragDropDirective } from './directives/drag-drop.directive';
 
 export const quillModule = QuillModule.forRoot();
 
@@ -17,7 +19,8 @@ export const quillModule = QuillModule.forRoot();
   declarations: [
     PhilipEditorComponent,
     PhilipDialogComponent,
-    MaterialFileUploadComponent
+    MaterialFileUploadComponent,
+    DragDropDirective
   ],
   imports: [
     CommonModule,
@@ -28,14 +31,17 @@ export const quillModule = QuillModule.forRoot();
     MatButtonModule,
     MatInputModule,
     MatProgressBarModule,
-    MatIconModule
+    MatIconModule,
+    MatToolbarModule
   ],
   exports: [
     PhilipDialogComponent,
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatToolbarModule,
+    MatInputModule
   ],
 })
 export class PhilipEditorModule { }

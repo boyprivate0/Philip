@@ -44,8 +44,13 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "waqar_ali.philip-collection/editor@0.0.6": {
+    "waqar_ali.philip-collection/editor@1.0.4": {
         "files": [
+            {
+                "relativePath": "src/app/editor/directives/drag-drop.directive.ts",
+                "test": false,
+                "name": "drag-drop.directive.ts"
+            },
             {
                 "relativePath": "src/app/editor/material-file-upload/material-file-upload.component.html",
                 "test": false,

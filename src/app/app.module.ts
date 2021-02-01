@@ -1,11 +1,11 @@
-// import { PhilipEditorModule } from './editor/philip-editor.module';
+import { PhilipEditorModule } from './editor/philip-editor.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { PhilipEditorModule } from '@bit/waqar_ali.philip-collection.editor';
+// import { PhilipEditorModule } from '@bit/waqar_ali.philip-collection.editor';
 // import { ListViewModule } from './list-view/list-view.module';
 // import { PhilipEditorComponent } from './editor/philip-editor/philip-editor.component';
 // import { CardViewModule } from './card-view/card-view.module';

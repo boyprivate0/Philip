@@ -39,12 +39,30 @@ export class AppComponent {
   ];
 
   images = [
-    'https://picsum.photos/200',
-    'https://picsum.photos/400',
-    'https://picsum.photos/600',
-    'https://picsum.photos/200',
-    'https://picsum.photos/400',
-    'https://picsum.photos/600'
+    {
+      id: '1',
+      src: 'https://picsum.photos/200'
+    },
+    {
+      id: '2',
+      src: 'https://picsum.photos/400'
+    },
+    {
+      id: '3',
+      src: 'https://picsum.photos/600'
+    },
+    {
+      id: '4',
+      src: 'https://picsum.photos/200'
+    },
+    {
+      id: '5',
+      src: 'https://picsum.photos/400'
+    },
+    {
+      id: '6',
+      src: 'https://picsum.photos/600'
+    },
   ]
 
   updateData($event: any) {

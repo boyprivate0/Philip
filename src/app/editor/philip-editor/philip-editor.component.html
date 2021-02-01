@@ -1,33 +1,52 @@
-<h2 mat-dialog-title>Edit Text Block</h2>
+<mat-toolbar class="space-between mat-accent m-0">
+    <mat-toolbar-row fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+        <span class="title dialog-title">{{textBlockText}}</span>
+        <button mat-icon-button (click)="close()" aria-label="Close dialog">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-toolbar-row>
+</mat-toolbar>
 
-<mat-dialog-content [formGroup]="form">
-    <mat-form-field>
-        <input matInput placeholder="Title" formControlName="title">
+<mat-dialog-content class="content-margin" [formGroup]="form">
+
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Title</mat-label>
+        <input matInput name="title" formControlName="title" type="text">
     </mat-form-field>
-    <p>
-        Description
-    </p>
-    <quill-editor [style]="editorStyle" (onContentChanged)="saveText($event)" [modules]="modules"
-        formControlName="description"></quill-editor>
 
-    <ng-container *ngFor="let image of images">
-        <picture>
-            <source media='(min-width:0px)' srcset="{{image}}">
-            <img mat-card-image src="" alt="Photo of a Shiba Inu">
-        </picture>
+    <mat-label>Description</mat-label>
+    <quill-editor [style]="editorStyle" (onContentChanged)="saveText($event)" [modules]="modules" formControlName="description"></quill-editor>
+
+    <div class="margin-top--20"></div>
+    <ng-container *ngFor="let image of images; let i = index">
+        <ng-container *ngIf="image">
+            <picture>
+                <source media='(min-width:0px)' srcset="{{image.src}}">
+                <img mat-card-image src="" alt="Photo">
+            </picture>
+            <button (click)="removeImage(i)" mat-icon-button aria-label="remove" class="btn">
+                <mat-icon class="remove-icon">close</mat-icon>
+            </button>
+        </ng-container>
     </ng-container>
-    <ng-container *ngFor="let image of newImages">
-        <picture>
-            <source media='(min-width:0px)' srcset="{{image}}">
-            <img mat-card-image src="" alt="Photo of a Shiba Inu">
-        </picture>
+    <ng-container *ngFor="let image of newImages; let i = index">
+        <ng-container *ngIf="image">
+            <picture>
+                <source media='(min-width:0px)' srcset="{{image}}">
+                <img mat-card-image src="" alt="Photo">
+            </picture>
+            <button (click)="removeNewImage(i)" mat-icon-button aria-label="remove" class="btn">
+                <mat-icon class="remove-icon">close</mat-icon>
+            </button>
+        </ng-container>
     </ng-container>
     <div style="text-align:center">
         <app-material-file-upload (complete)="onFileComplete($event)"></app-material-file-upload>
     </div>
 </mat-dialog-content>
 
-<mat-dialog-actions>
-    <button (click)="close()" mat-raised-button class="dialog-button">Close</button>
-    <button class="mat-raised-button mat-primary" (click)="save()">Save</button>
+<mat-dialog-actions class="content-margin">
+    <button (click)="save()" class="mat-accent mat-raised-button">
+        Save
+    </button>
 </mat-dialog-actions>

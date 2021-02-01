@@ -45,6 +45,17 @@ export class MaterialFileUploadComponent implements OnInit {
         fileUpload.click();
     }
 
+    uploadFile(event: any) {
+        for (let index = 0; index < event.length; index++) {
+            const element = event[index];
+            const validImageTypes = ['image/gif', 'image/jpeg', 'image/png'];
+            if (validImageTypes.includes(element.type)) {
+                this.files.push(element)
+            }
+        }
+        this.uploadFiles();
+    }
+
     private uploadFiles() {
         this.complete.emit(this.files);
     }
